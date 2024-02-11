@@ -1,0 +1,39 @@
+@import "../../assets/scss/utils/variables";
+@import "../../assets/scss/utils/mixins";
+
+.app-header {
+    @include displayFlex(space-between, center, 1rem);
+    padding: 0.75rem 1rem;
+    color: $white;
+    background-color: $black;
+
+    .app-logo {
+        display: block;
+
+        img {
+            display: block;
+            height: 3rem;
+        }
+    }
+
+    .app-sitename {
+        font-size: 1.75rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: $fourth;
+    }
+
+    .app-navigation {
+        @include displayFlex(center, center, 1rem);
+
+        a {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: $fourth;
+
+            &.active {
+                color: $secondary;
+            }
+        }
+    }
+}

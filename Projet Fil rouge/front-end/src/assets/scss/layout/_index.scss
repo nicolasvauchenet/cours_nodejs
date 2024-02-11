@@ -1,0 +1,18 @@
+html {
+    scroll-behavior: smooth;
+
+    body {
+        margin: 0;
+        font-family: $fontPrimary;
+        color: $black;
+        background-color: $white;
+
+        .app-main {
+            min-height: calc(100dvh - 4.5rem);
+
+            section {
+                padding: 2rem 1.5rem;
+            }
+        }
+    }
+}
