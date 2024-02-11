@@ -1,8 +1,22 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { removeUserData } from '../../store/slices/userSlice'
 import reactLogo from '../../assets/react.svg'
 import './index.scss'
 
 const Header = () => {
+  const token = localStorage.getItem('token')
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const handleLogout = e => {
+    e.preventDefault()
+    if (window.confirm('Vous partez ?')) {
+      dispatch(removeUserData())
+      navigate('/')
+    }
+  }
+
   return (
     <header className='app-header'>
       <NavLink to='/' className='app-logo'>
@@ -15,7 +29,13 @@ const Header = () => {
 
       <nav className='app-navigation'>
         <NavLink to='/'>Accueil</NavLink>
-        <NavLink to='/connexion'>Connexion</NavLink>
+        {token ? (
+          <a href='#' onClick={handleLogout}>
+            Déconnexion
+          </a>
+        ) : (
+          <NavLink to='/connexion'>Connexion</NavLink>
+        )}
       </nav>
     </header>
   )

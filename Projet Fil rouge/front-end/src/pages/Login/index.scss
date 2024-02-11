@@ -1,0 +1,80 @@
+@import "../../assets/scss/utils/variables";
+
+.app-form {
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    width: 50dvw;
+
+    .form-fieldset {
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        border: 2px solid $third;
+        border-radius: 0.5rem;
+
+        .form-legend {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: $third;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+
+            .form-label {
+                display: block;
+                margin-bottom: 0.5rem;
+                font-size: 1.25rem;
+                font-weight: bold;
+                color: $third;
+
+                &.required {
+                    &:after {
+                        content: " *";
+                        font-weight: bold;
+                        color: red;
+                    }
+                }
+            }
+
+            .form-control {
+                box-sizing: border-box;
+                padding: 0.75rem 1rem;
+                width: 100%;
+                font-family: $fontPrimary;
+                font-size: 1rem;
+                border: 1px solid $third;
+                border-radius: 0.5rem;
+            }
+
+            .error {
+                margin-top: 0.5rem;
+                margin-bottom: 0;
+                margin-right: 1rem;
+                font-size: 0.85rem;
+                font-weight: bold;
+                text-align: right;
+                color: red;
+            }
+        }
+    }
+
+    .app-btn {
+        box-sizing: border-box;
+        margin: 0 1.5rem;
+        padding: 0.75rem 1rem;
+        width: calc(100% - 3rem);
+        font-family: $fontPrimary;
+        font-size: 1.25rem;
+        font-weight: bold;
+        background-color: $white;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+
+        &.cta {
+            font-size: 1.5rem;
+            color: $white;
+            background-color: $primary;
+        }
+    }
+}
