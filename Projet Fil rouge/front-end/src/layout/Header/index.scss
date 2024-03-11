@@ -2,6 +2,9 @@
 @import "../../assets/scss/utils/mixins";
 
 .app-header {
+    position: sticky;
+    top: 0;
+    z-index: 9998;
     @include displayFlex(space-between, center, 1rem);
     padding: 0.75rem 1rem;
     color: $white;
@@ -17,19 +20,39 @@
     }
 
     .app-sitename {
-        font-size: 1.75rem;
+        font-size: 1.25rem;
         font-weight: bold;
         text-transform: uppercase;
         color: $fourth;
+
+        @include respondTo(sm) {
+            font-size: 1.75rem;
+        }
     }
 
     .app-navigation {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
         @include displayFlex(center, center, 1rem);
+        background-color: $black;
+
+        @include respondTo(sm) {
+            position: static;
+            bottom: initial;
+            left: initial;
+            right: initial;
+        }
 
         a {
-            font-size: 1.25rem;
+            padding: 0.5rem;
             font-weight: bold;
             color: $fourth;
+
+            @include respondTo(sm) {
+                font-size: 1.25rem;
+            }
 
             &.active {
                 color: $secondary;

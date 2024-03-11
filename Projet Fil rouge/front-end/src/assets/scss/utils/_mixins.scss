@@ -5,3 +5,16 @@
     align-items: $align;
     gap: $gap;
 }
+
+@mixin respondTo($breakpoint) {
+    @if $breakpoint == sm {
+        @media (min-width: 768px) {
+            @content;
+        }
+    }
+    @if $breakpoint == md {
+        @media (min-width: 1025px) {
+            @content;
+        }
+    }
+}

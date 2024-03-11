@@ -1,9 +1,13 @@
 @import "../../assets/scss/utils/variables";
+@import "../../assets/scss/utils/mixins";
 
 .app-form {
     margin: 0 auto;
     padding: 2rem 1.5rem;
-    width: 50dvw;
+
+    @include respondTo(sm) {
+        width: 50dvw;
+    }
 
     .form-fieldset {
         margin-bottom: 2rem;

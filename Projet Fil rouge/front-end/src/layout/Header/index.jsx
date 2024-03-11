@@ -24,7 +24,7 @@ const Header = () => {
       </NavLink>
 
       <NavLink to='/' className='app-sitename'>
-        Cours Node.js - Front-End
+        Cours Node.js - Front
       </NavLink>
 
       <nav className='app-navigation'>
