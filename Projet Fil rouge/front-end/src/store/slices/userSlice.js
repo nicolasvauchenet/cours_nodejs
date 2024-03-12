@@ -27,7 +27,7 @@ export const getUserData = createAsyncThunk(
     if (token) {
       try {
         const response = await axios.get(
-          'http://localhost:3000/api/users/profile',
+          'http://localhost:3000/api/profile',
           {
             headers: {
               Authorization: `Bearer ${token}`
