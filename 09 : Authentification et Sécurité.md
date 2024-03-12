@@ -157,10 +157,10 @@ aux ressources protégées.
    ```javascript
    function verifierToken(req, res, next) {
        const token = req.headers['authorization'];
-       if (!token) return res.status(403).send('Token requis');
+       if (!token) return res.status(401).send('Token requis');
 
        jwt.verify(token, 'secret_clé', (err, decoded) => {
-           if (err) return res.status(401).send('Token invalide');
+           if (err) return res.status(403).send('Token invalide');
            req.utilisateur = decoded;
            next();
        });
