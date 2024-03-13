@@ -3,7 +3,30 @@ h1 {
     color: $third;
 }
 
+h2 {
+    color: $third;
+}
+
 a {
     color: $primary;
     text-decoration: none;
+}
+
+ul {
+    li {
+        margin-bottom: 1rem;
+        line-height: 1.25rem;
+    }
+}
+
+.text-success {
+    color: green;
+}
+
+.text-info {
+    color: blue;
+}
+
+.text-danger {
+    color: red;
 }

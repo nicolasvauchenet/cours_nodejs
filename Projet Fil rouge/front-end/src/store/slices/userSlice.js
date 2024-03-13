@@ -13,7 +13,7 @@ export const authenticateUser = createAsyncThunk(
       return response.data
     } catch (error) {
       return rejectWithValue({
-        message: error.response.data.message,
+        message: error.response.data.error,
         status: error.response.status
       })
     }
@@ -26,8 +26,36 @@ export const getUserData = createAsyncThunk(
     const token = localStorage.getItem('token')
     if (token) {
       try {
+        const response = await axios.get('http://localhost:3000/api/profile', {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+        return response.data
+      } catch (error) {
+        return rejectWithValue({
+          message: error.response
+            ? error.response.data.message
+            : 'An unknown error occurred',
+          status: error.response ? error.response.status : 500
+        })
+      }
+    }
+    return rejectWithValue({
+      message: 'No token found',
+      status: 'Authorization Required'
+    })
+  }
+)
+
+export const getUserProducts = createAsyncThunk(
+  'user/getUserProducts',
+  async function (_, { rejectWithValue }) {
+    const token = localStorage.getItem('token')
+    if (token) {
+      try {
         const response = await axios.get(
-          'http://localhost:3000/api/profile',
+          'http://localhost:3000/api/profile/products',
           {
             headers: {
               Authorization: `Bearer ${token}`
@@ -53,6 +81,7 @@ export const getUserData = createAsyncThunk(
 
 const initialState = {
   userData: null,
+  userProducts: null,
   status: null,
   error: null
 }
@@ -93,6 +122,21 @@ export const userSlice = createSlice({
       })
       .addCase(getUserData.rejected, (state, action) => {
         state.userData = null
+        state.status = 'failed'
+        state.error = action.error.message
+      })
+      .addCase(getUserProducts.pending, state => {
+        state.userProducts = null
+        state.status = 'loading'
+        state.error = null
+      })
+      .addCase(getUserProducts.fulfilled, (state, action) => {
+        state.userProducts = action.payload
+        state.status = 'succeeded'
+        state.error = null
+      })
+      .addCase(getUserProducts.rejected, (state, action) => {
+        state.userProducts = null
         state.status = 'failed'
         state.error = action.error.message
       })
