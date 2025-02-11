@@ -35,12 +35,7 @@
 - Création d'une application simple avec Express : Routes et Middleware
 - Utilisation de Middleware tiers
 
-### Projet Fil Rouge - Partie 1
-
-- Présentation du projet fil rouge
-- Initialisation du projet et création d'une application Node.js basique
-- Réflexion sur l'architecture de l'application et définition des routes API
-- Mise en place de la documentation pour l'API du projet fil rouge
+---
 
 ## Partie 2 : Bases de Données, Gestion des Données et Sécurité
 
@@ -77,11 +72,7 @@
 - Utilisation de Jest pour les tests unitaires
 - Utilisation de Mocha et Chai pour les tests d'intégration
 
-### Projet Fil Rouge - Partie 2
-
-- Intégration de la base de données MongoDB au projet
-- Implémentation des fonctionnalités de base de l'API (CRUD)
-- Début de l'implémentation de l'authentification
+---
 
 ## Partie 3 : Déploiement et Industrialisation
 
@@ -112,9 +103,3 @@
 - Mise en place de l'intégration continue (CI) avec GitHub Actions
 - Mise en place de la livraison continue (CD) avec GitHub Actions
 - Introduction à Docker et Kubernetes
-
-### Projet Fil Rouge - Partie 3
-
-- Finalisation des fonctionnalités de l'API
-- Tests unitaires et d'intégration
-- Préparation pour le déploiement
